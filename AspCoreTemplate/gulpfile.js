@@ -34,10 +34,10 @@ var options = {
             'select2/dist/css/select2.css'
         ],
         workingDirectory: 'node_modules',
-        sassSource: 'Sass/site.scss',
+        sassSourceLight: 'Sass/siteLight.scss',
         sassSourceDark: 'Sass/siteDark.scss',
         sassFiles: 'Sass/**/*.scss',
-        output: 'bundle.css',
+        outputLight: 'bundle-light.css',
         outputDark: 'bundle-dark.css',
         dest: 'wwwroot/lib'
     },
@@ -64,16 +64,16 @@ gulp.task('bundle-JS', function () {
         .pipe(gulp.dest(options.js.dest));
 });
 
-gulp.task('bundle-CSS', function () {
+gulp.task('bundle-CSS-light', function () {
     var libCSS = gulp.src(options.css.libFiles, { cwd: options.css.workingDirectory });
 
-    var siteCSS = gulp.src(options.css.sassSource)
+    var siteCSS = gulp.src(options.css.sassSourceLight)
         .pipe(sass({
             errLogToConsole: true
         }).on('error', sass.logError));
 
     return merge(libCSS, siteCSS)
-        .pipe(concat(options.css.output))
+        .pipe(concat(options.css.outputLight))
         .pipe(gulp.dest(options.css.dest))
         .pipe(cleancss({ level: { 1: { specialComments: 0 } } }))
         .pipe(rename({ suffix: '.min' }))
@@ -102,8 +102,8 @@ gulp.task('copy-fonts', function () {
 });
 
 gulp.task('sass-watch', function () {
-    gulp.watch(options.css.sassFiles, gulp.parallel('bundle-CSS', 'bundle-CSS-dark'));
+    gulp.watch(options.css.sassFiles, gulp.parallel('bundle-CSS-light', 'bundle-CSS-dark'));
 });
 
-gulp.task('default', gulp.parallel('bundle-JS', 'bundle-CSS', 'bundle-CSS-dark', 'copy-fonts'));
+gulp.task('default', gulp.parallel('bundle-JS', 'bundle-CSS-light', 'bundle-CSS-dark', 'copy-fonts'));
 //#endregion

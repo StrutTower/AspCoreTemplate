@@ -25,7 +25,11 @@
                             </a>
                         </li>*@
                 } else {
-
+                    @*<li class="nav-item">
+                            <a asp-action="Logout" asp-controller="Account" asp-area="" class="nav-link">
+                                Logout
+                            </a>
+                        </li>*@
                 }
                 @if (User.IsInRole(RoleTypes.Admin)) {
                     <li class="nav-item">

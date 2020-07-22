@@ -21,12 +21,11 @@ namespace AspCoreTemplate.TagHelpers {
     [HtmlTargetElement("h6", Attributes = "display-for")]
     [HtmlTargetElement("li", Attributes = "display-for")]
     public class DisplayForTagHelper : TagHelper {
-
         public DisplayForTagHelper(IHtmlHelper htmlHelper) {
-            _htmlHelper = htmlHelper;
+            HtmlHelper = htmlHelper;
         }
 
-        private IHtmlHelper _htmlHelper { get; set; }
+        private IHtmlHelper HtmlHelper { get; set; }
 
         [HtmlAttributeName("display-for")]
         public ModelExpression Model { get; set; }
@@ -38,8 +37,8 @@ namespace AspCoreTemplate.TagHelpers {
         public ViewContext ViewContext { get; set; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output) {
-            ((IViewContextAware)_htmlHelper).Contextualize(ViewContext);
-            output.PostContent.AppendHtml(_htmlHelper.Display(Model, TemplateName));
+            ((IViewContextAware)HtmlHelper).Contextualize(ViewContext);
+            output.PostContent.AppendHtml(HtmlHelper.Display(Model, TemplateName));
         }
     }
 }

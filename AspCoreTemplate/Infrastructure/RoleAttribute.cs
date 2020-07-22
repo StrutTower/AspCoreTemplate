@@ -5,9 +5,10 @@ using System;
 
 namespace AspCoreTemplate.Infrastructure {
     public class RoleAttribute : Attribute, IAuthorizationFilter {
-        private readonly string[] _roles;
+        private readonly string[] roles;
+
         public RoleAttribute(params string[] types) {
-            _roles = types;
+            roles = types;
         }
 
         public void OnAuthorization(AuthorizationFilterContext context) {
@@ -17,7 +18,7 @@ namespace AspCoreTemplate.Infrastructure {
                     return;
 
                 // Check if the user has any of the roles provided
-                foreach (string type in _roles) {
+                foreach (string type in roles) {
                     if (context.HttpContext.User.IsInRole(type)) {
                         return;
                     }

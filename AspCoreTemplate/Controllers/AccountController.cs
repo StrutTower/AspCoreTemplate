@@ -14,10 +14,10 @@ using Microsoft.AspNetCore.Server.IIS.Core;
 
 namespace AspCoreTemplate.Controllers {
     public class AccountController : CustomController {
-        //private readonly UnitOfWork _uow;
+        //private readonly UnitOfWork uow;
 
         public AccountController(/*UnitOfWork uow*/) {
-            //_uow = uow;
+            //this.uow = uow;
         }
 
 
@@ -31,7 +31,7 @@ namespace AspCoreTemplate.Controllers {
             throw new NotImplementedException();
             //if (ModelState.IsValid) {
             //User user;
-            //user = _uow.GetRepo<UserRepository>().GetByUsername(model.UserName);
+            //user = uow.GetRepo<UserRepository>().GetByUsername(model.UserName);
 
             //if (user != null) {
             //    if (new Hasher().Validate(user.Password, model.Password, user.Salt)) {

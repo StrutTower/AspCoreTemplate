@@ -8,10 +8,10 @@
     "jquery-validation-unobtrusive": "~3.2.11",
     "popper.js": "~1.16.1",
     "bootstrap": "~4.4.1",
-    "dark-bootstrap-theme": "4.0.2",
     "lobibox": "~1.2.7",
     "select2": "~4.0.13",
     "disable-form-on-submit": "~1.0.1",
+    "tower-bootstrap-theme": "https://github.com/StrutTower/tower-bootstrap-theme",
     "@mdi/font": "latest"
   },
   "devDependencies": {

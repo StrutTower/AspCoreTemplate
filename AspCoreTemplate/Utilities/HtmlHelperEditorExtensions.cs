@@ -9,6 +9,14 @@ using System.Web;
 
 namespace AspCoreTemplate.Utilities {
     public static class HtmlHelperEditorExtensions {
+        /// <summary>
+        /// Creates a label for the model and adds a red astrix if the field is required.
+        /// </summary>
+        /// <typeparam name="TModel"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <param name="html"></param>
+        /// <param name="expression">Model</param>
+        /// <param name="labelDisplay">Optional. Overrides the label name of the model</param>
         public static IHtmlContent LabelRequiredFor<TModel, TValue>(this IHtmlHelper<TModel> html,
             Expression<Func<TModel, TValue>> expression,
             string labelDisplay = null) {
@@ -90,6 +98,17 @@ namespace AspCoreTemplate.Utilities {
                 html.ValidationMessageFor(expression).ToRawString());
         }
 
+        /// <summary>
+        /// Creates a form group with a label, select list, description, and validation message.
+        /// </summary>
+        /// <typeparam name="TModel"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <param name="html"></param>
+        /// <param name="expression">Model</param>
+        /// <param name="selectlistItems">Select list items</param>
+        /// <param name="optionLabel">Optional. Default select item label.</param>
+        /// <param name="labelDisplay">Optional. Overrides the label name for the model.</param>
+        /// <param name="htmlAttributes">Optional. Adds HTML attributes to the select element.</param>
         public static IHtmlContent FormGroupSelectListFor<TModel, TValue>(
             this IHtmlHelper<TModel> html,
             Expression<Func<TModel, TValue>> expression,
@@ -100,6 +119,17 @@ namespace AspCoreTemplate.Utilities {
             return FormGroupSelectListFor(html, expression, new SelectList(selectlistItems, "Value", "Text"), optionLabel, labelDisplay, htmlAttributes);
         }
 
+        /// <summary>
+        /// Creates a form group with a label, select list, description, and validation message.
+        /// </summary>
+        /// <typeparam name="TModel"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <param name="html"></param>
+        /// <param name="expression">Model</param>
+        /// <param name="selectlist">Select list object</param>
+        /// <param name="optionLabel">Optional. Default select item label.</param>
+        /// <param name="labelDisplay">Optional. Overrides the label name for the model.</param>
+        /// <param name="htmlAttributes">Optional. Adds HTML attributes to the select element.</param>
         public static IHtmlContent FormGroupSelectListFor<TModel, TValue>(
         this IHtmlHelper<TModel> html,
         Expression<Func<TModel, TValue>> expression,

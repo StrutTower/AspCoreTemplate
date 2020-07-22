@@ -2,15 +2,10 @@
     font-size: 14px;
 }
 
-@import "../node_modules/dark-bootstrap-theme/src/darkVariables";
 @import "variablesShared";
 @import "variablesDark";
 
-@import "bootstrap";
-@import "../node_modules/dark-bootstrap-theme/src/fixes";
-@import "../node_modules/dark-bootstrap-theme/src/customStyles/allCustomStyles";
-@import "../node_modules/dark-bootstrap-theme/src/plugins/allPlugins";
-
+@import "../node_modules/tower-bootstrap-theme/src/dark-theme";
 
 @import "basicStyles";
 @import "forms";

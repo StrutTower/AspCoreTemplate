@@ -1,9 +1,9 @@
 ﻿<head>
     <title>
-        @if (ViewBag.Title == null) {
+        @if (ViewData["Title"] == null) {
             @AppSettings.Value.AppName;
         } else {
-            @ViewBag.Title @:- @AppSettings.Value.AppName
+            @ViewData["Title"] @:- @AppSettings.Value.AppName
         }
     </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,7 +13,32 @@
     <meta name="robots" content="noodp" />
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta http-equiv="content-language" content="en" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link rel="stylesheet" href="~/lib/bundle.min.css" asp-append-version="true" id="light-theme-link" disabled />
-    <link rel="stylesheet" href="~/lib/bundle-dark.min.css" asp-append-version="true" id="dark-theme-link" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="~/lib/bundle-light.min.css" asp-append-version="true" media="(prefers-color-scheme: light)" />
+    <link rel="stylesheet" href="~/lib/bundle-dark.min.css" asp-append-version="true" media="(prefers-color-scheme: dark)" id="default-theme" />
+    <link rel="stylesheet" href="~/lib/bundle-light.min.css" asp-append-version="true" media="print" />
+    <script>
+        // Check if the browser doesn't support prefers-color-scheme
+        if (window.matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
+            // Hide the page content until the CSS loads
+            document.documentElement.style.display = 'none';
+
+            // Get the href of the default theme
+            var cssHref = document.getElementById('default-theme').getAttribute('href');
+
+            // Add a new stylesheet link without a media attribute
+            document.head.insertAdjacentHTML(
+                'beforeend',
+                '<link href="' + cssHref + '" rel="stylesheet" id="fallback-theme" />'
+            );
+
+            // Once the fallback stylesheet is loaded show the page content
+            document.getElementById('fallback-theme').addEventListener('load', function (e) {
+                document.documentElement.style.display = '';
+            });
+        }
+    </script>
 </head>

@@ -5,11 +5,8 @@
             <span class="text-danger font-weight-bold">Development Server</span> -
         </environment>
         <a href="@AppSettings.Value.CompanyHomepageUrl" target="_blank" rel="noopener noreferrer" display-for="@AppSettings.Value.CompanyName"></a>
-        <span title="Developed by Alex Tiller">
-            @AppSettings.Value.AppName
-            &copy; @DateTime.Now.Year -
-        </span>
-        <a asp-action="ReleaseNotes" asp-controller="Home" asp-area="">Version @ViewUtilities.GetWebsiteVersion()</a>
+        @AppSettings.Value.AppName
+        &copy; @DateTime.Now.Year 
 
         <div class="hidden">@Html.AntiForgeryToken()</div>
         @if (TempData["message"] != null) {

@@ -16,16 +16,14 @@
     display: none;
 }
 
-.text-faded {
-    opacity: 0.7;
-}
-
-.font-weight-semibold {
-    font-weight:600;
-}
-
 .lobibox-notify-msg {
     max-height: none !important;
+}
+
+a.disable-link {
+    pointer-events: none;
+    cursor: default;
+    color: $body-color;
 }
 
 footer {

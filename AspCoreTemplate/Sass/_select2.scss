@@ -81,17 +81,3 @@ $personPictureSize: 80px;
         width: $personPictureSize;
     }
 }
-
-//HACK This media query works to only apply the styles to IE10 and IE11
-@media all and (-ms-high-contrast:none), (-ms-high-contrast:active) {
-    //Form-control heights are slightly smaller on IE11 for some reason
-    .select2.select2-container.select2-container--default {
-        .select2-selection--single, .select2-selection--multiple {
-            padding: 2.5px 5px;
-        }
-
-        .select2-selection__arrow {
-            height: 34px;
-        }
-    }
-}
