@@ -1,18 +1,18 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+﻿<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
     <div class="container">
         <a class="navbar-brand" asp-action="Index" asp-controller="Home" asp-area="" display-for="@AppSettings.Value.AppName"></a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-navmenu">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-navmenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="navbar-collapse collapse text-light" id="navbar-navmenu">
-            <span class="navbar-text mr-auto">
-                <environment include="Development">
-                    <span class="text-warning">Development Server</span>
-                </environment>
-            </span>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ms-auto">
+                <li class="navbar-text">
+                    <environment include="Development">
+                        <span class="text-warning">Development Server</span>
+                    </environment>
+                </li>
                 @if (User.Identity.IsAuthenticated) {
                     <li class="nav-item">
                         <a asp-action="Logout" asp-controller="Account" asp-area="" class="nav-link">
@@ -20,16 +20,16 @@
                         </a>
                     </li>
                     @*<li class="nav-item">
-                            <a asp-action="Login" asp-controller="Account" asp-area="" class="nav-link">
-                                Login
-                            </a>
-                        </li>*@
+                        <a asp-action="Login" asp-controller="Account" asp-area="" class="nav-link">
+                            Login
+                        </a>
+                    </li>*@
                 } else {
                     @*<li class="nav-item">
-                            <a asp-action="Logout" asp-controller="Account" asp-area="" class="nav-link">
-                                Logout
-                            </a>
-                        </li>*@
+                        <a asp-action="Logout" asp-controller="Account" asp-area="" class="nav-link">
+                            Logout
+                        </a>
+                    </li>*@
                 }
                 @if (User.IsInRole(RoleTypes.Admin)) {
                     <li class="nav-item">

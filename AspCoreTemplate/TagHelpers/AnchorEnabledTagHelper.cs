@@ -4,7 +4,7 @@ using System.Text.Encodings.Web;
 
 namespace AspCoreTemplate.TagHelpers {
     [HtmlTargetElement("a", Attributes = "asp-enabled")]
-    public class AnchorDisableTagHelper : TagHelper {
+    public class AnchorEnabledTagHelper : TagHelper {
         [HtmlAttributeName("asp-enabled")]
         public bool Enabled { get; set; }
 

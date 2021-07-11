@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace AspCoreTemplate.TagHelpers {
-    [HtmlTargetElement("a", Attributes = "asp-visible")]
-    public class AnchorHiddenTagHelper : TagHelper {
+    [HtmlTargetElement("*", Attributes = "asp-visible")]
+    public class VisibleTagHelper : TagHelper {
         [HtmlAttributeName("asp-visible")]
         public bool Visible { get; set; }
 

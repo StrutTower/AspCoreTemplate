@@ -16,11 +16,8 @@
     display: none;
 }
 
-.lobibox-notify-msg {
-    max-height: none !important;
-}
-
 a.disable-link {
+    text-decoration:none;
     pointer-events: none;
     cursor: default;
     color: $body-color;

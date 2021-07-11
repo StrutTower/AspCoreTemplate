@@ -1,7 +1,7 @@
 ﻿/// <binding ProjectOpened='sass-watch' />
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
-    sass = require('gulp-sass'),
+    sass = require('gulp-dart-sass'),
     cleancss = require('gulp-clean-css'),
     terser = require('gulp-terser'),
     rename = require('gulp-rename'),
@@ -12,13 +12,13 @@ var gulp = require('gulp'),
 var options = {
     js: {
         libFiles: [
-            'jquery/dist/jquery.js',
-            'jquery-validation/dist/jquery.validate.js',
-            'jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js',
-            'popper.js/dist/umd/popper.js',
-            'bootstrap/dist/js/bootstrap.js',
-            'lobibox/dist/js/notifications.js',
-            'select2/dist/js/select2.js',
+            'cash-dom/dist/cash.js',
+            //'jquery/dist/jquery.js',
+            //'jquery-validation/dist/jquery.validate.js',
+            //'jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js',
+            'bootstrap/dist/js/bootstrap.bundle.js',
+            //'lobibox/dist/js/notifications.js',
+            //'select2/dist/js/select2.js',
             'disable-form-on-submit/src/disable-form-on-submit.js'
         ],
         workingDirectory: 'node_modules',
@@ -29,9 +29,7 @@ var options = {
     },
     css: {
         libFiles: [
-            '@mdi/font/css/materialdesignicons.css',
-            'lobibox/dist/css/lobibox.css',
-            'select2/dist/css/select2.css'
+            '@mdi/font/css/materialdesignicons.css'
         ],
         workingDirectory: 'node_modules',
         sassSourceLight: 'Sass/siteLight.scss',

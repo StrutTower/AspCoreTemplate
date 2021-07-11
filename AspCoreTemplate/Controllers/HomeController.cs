@@ -15,9 +15,5 @@ namespace AspCoreTemplate.Controllers {
         public IActionResult Index() {
             return View();
         }
-
-        public IActionResult ReleaseNotes() {
-            return View();
-        }
     }
 }
